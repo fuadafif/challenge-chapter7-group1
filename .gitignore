@@ -1,1 +1,4 @@
 node_modules
+
+# macos file
+.DS_Store
