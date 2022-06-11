@@ -20,5 +20,5 @@ const register = async (req, res) => {
         }
     );
 
-    res.json({ message: "User is added successful", data });
+    res.status(401).json({ message: "User is added successful", data });
 };
