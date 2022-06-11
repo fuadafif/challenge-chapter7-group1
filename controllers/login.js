@@ -10,26 +10,28 @@ const db = require("../models");
 // fungsi login
 const login = async (req, res) => {
     const data = await db.user_game.findOne({
-        where: { username: req.body.username },
+        where: { email: req.body.email },
     });
 
     // jika user dan password tidak sesuai
-    if (!data.username == req.body.nama && data.password == req.body.password) {
+    if (!data.email == req.body.email && data.password == req.body.password) {
         return res
             .status(401)
-            .json({ messase: "username or password is incorrect" });
+            .json({ messase: "E-mail address or password is incorrect" });
     }
 
+    // isi token
     const tokenPayload = {
         id: data.id,
-        nama: data.nama,
+        email: data.email,
         role: data.role,
     };
 
+    // token disimpan
     const token = jwt.sign(tokenPayload, jwtConfig.JWT_SECRET);
 
     res.json({
-        message: "token berhasil",
+        message: "Login successful",
         token: token,
     });
 };
