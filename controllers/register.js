@@ -1,8 +1,9 @@
-//
-const db = require("../models");
+// import model
+const database = require("../models");
 
+// fungsi register
 const register = async (req, res) => {
-    const data = db.user_game.create(
+    const data = database.user_game.create(
         {
             email: req.body.email,
             password: req.body.password,
@@ -20,5 +21,6 @@ const register = async (req, res) => {
         }
     );
 
+    // respon register barhasil
     res.status(401).json({ message: "User is added successful", data });
 };

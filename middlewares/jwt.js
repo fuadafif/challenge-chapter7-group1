@@ -13,7 +13,7 @@ const jwtAuthorization = (req, res, next) => {
     // jika tidak ada token, beri response error
     if (!token) {
         return res.status(401).json({
-            message: "Token tidak ditemukan",
+            message: "Token not found",
         });
     }
 
@@ -28,7 +28,7 @@ const jwtAuthorization = (req, res, next) => {
     } catch (err) {
         // jika tidak cocok, beri response error
         return res.status(401).json({
-            message: "Token tidak valid",
+            message: "Token not valid",
         });
     }
 };

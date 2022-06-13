@@ -4,12 +4,12 @@ const jwt = require("jsonwebtoken");
 // import konfigurasi
 const jwtConfig = require("../config/jwt");
 
-// import data user
-const db = require("../models");
+// import models
+const database = require("../models");
 
 // fungsi login
 const login = async (req, res) => {
-    const data = await db.user_game.findOne({
+    const data = await database.user_game.findOne({
         where: { email: req.body.email },
     });
 
@@ -30,10 +30,13 @@ const login = async (req, res) => {
     // token disimpan
     const token = jwt.sign(tokenPayload, jwtConfig.JWT_SECRET);
 
+    // respon login berhasil
     res.json({
         message: "Login successful",
         token: token,
     });
+
+    res.render("main/login");
 };
 
 module.exports = login;

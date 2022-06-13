@@ -18,20 +18,10 @@ router.get("/game", (req, res) => {
 });
 
 // rute halaman login
-router.get("/login", (req, res) => {
-    const errorType = req.query.error;
-    let errorMessage = "";
+router.get("/login", require("./login"));
 
-    if (errorType === "email") {
-        errorMessage = "Not registered";
-    }
-
-    if (errorType === "password") {
-        errorMessage = "Incorrect password";
-    }
-
-    return res.render("main/login", { message: errorMessage });
-});
+// rute halaman register
+router.get("/register", require("./register"));
 
 // rute halaman dashboard (lihat semua data)
 router.get("/dashboard/index", (req, res) => {
