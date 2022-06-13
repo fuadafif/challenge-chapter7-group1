@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "binar",
-    "password": "keren",
-    "database": "referensi_challenge_development",
-    "host": "sql.madecanggih.dev",
+    "username": "postgres",
+    "password": "12345678",
+    "database": "challenge_chapter7",
+    "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
-    "username": "binar",
-    "password": "keren",
-    "database": "referensi_challenge_test",
-    "host": "sql.madecanggih.dev",
+    "username": "postgres",
+    "password": "12345678",
+    "database": "challenge_chapter7",
+    "host": "localhost",
     "dialect": "postgres"
   },
   "production": {
-    "username": "binar",
-    "password": "keren",
-    "database": "referensi_challenge_production",
-    "host": "sql.madecanggih.dev",
+    "username": "postgres",
+    "password": "12345678",
+    "database": "challenge_chapter7",
+    "host": "localhost",
     "dialect": "postgres"
   }
 }
