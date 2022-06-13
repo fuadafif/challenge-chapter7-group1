@@ -18,3 +18,5 @@ const game = async (req, res) => {
 
     res.render("main/game");
 };
+
+module.exports = game;
