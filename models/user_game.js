@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class user_game extends Model {
     /**
@@ -10,16 +8,22 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      user_game.hasOne(models.user_game_biodata, { foreignKey: 'id_user', sourceKey: 'id' }); // 1 user bisa memiliki 1 biodata
-      user_game.hasMany(models.user_game_history, { foreignKey: 'id_user', sourceKey: 'id' }); // 1 user bisa memiiki banyak history permainan
+      // define association here
+      user_game.hasOne(models.user_game_biodata, { foreignKey: "id_user", sourceKey: "id" });
+      user_game.hasMany(models.user_game_history, { foreignKey: "id_user", sourceKey: "id" });
+      user_game.hasMany(models.user_game_room, { foreignKey: "id_user", sourceKey: "id" });
     }
   }
-  user_game.init({
-    email: DataTypes.STRING,
-    pasword: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'user_game',
-  });
+  user_game.init(
+    {
+      email: DataTypes.STRING,
+      password: DataTypes.STRING,
+      role: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "user_game",
+    }
+  );
   return user_game;
 };

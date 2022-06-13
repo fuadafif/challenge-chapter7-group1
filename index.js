@@ -1,24 +1,15 @@
-// import express
-const express = require('express');
+const express = require("express");
 const app = express();
 
-// import router
-const router = require('./routes');
+const port = process.env.PORT || 5000;
 
-// atur port
-const port = 3000;
+const router = require("./routes");
 
-// gunakan middleware
-app.use(express.static('public')); // menyajikan folder public secara statis
-app.use(express.urlencoded({ extended: false })); // agar bisa baca request body format form
+// request body middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-// atur view engine yang digunakan
-app.set('view engine', 'ejs');
+app.use(router);
 
-// terapkan router
-app.use('/', router);
-
-// run app in port 3000
-app.listen(port, () => {
-  console.log('App is running in http://localhost:3000');
-});
+// running server
+app.listen(port, () => console.log("port is running on port " + port));

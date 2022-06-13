@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "binar",
-    "password": "keren",
-    "database": "referensi_challenge_development",
-    "host": "sql.madecanggih.dev",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "klp1_dev",
+    "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
-    "username": "binar",
-    "password": "keren",
-    "database": "referensi_challenge_test",
-    "host": "sql.madecanggih.dev",
-    "dialect": "postgres"
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   },
   "production": {
-    "username": "binar",
-    "password": "keren",
-    "database": "referensi_challenge_production",
-    "host": "sql.madecanggih.dev",
-    "dialect": "postgres"
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }
